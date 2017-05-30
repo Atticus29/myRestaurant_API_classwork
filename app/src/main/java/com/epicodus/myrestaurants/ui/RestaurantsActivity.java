@@ -1,16 +1,17 @@
-package com.epicodus.myrestaurants;
+package com.epicodus.myrestaurants.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.epicodus.myrestaurants.R;
+import com.epicodus.myrestaurants.models.Restaurant;
+import com.epicodus.myrestaurants.services.YelpService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ import okhttp3.Response;
 
 public class RestaurantsActivity extends Activity {
     @Bind(R.id.locationTextView) TextView mLocationTextView;
-    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+
 
     public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
 
