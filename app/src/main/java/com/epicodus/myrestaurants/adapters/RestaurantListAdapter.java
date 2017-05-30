@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.Bind;
 
 import com.epicodus.myrestaurants.R;
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -48,7 +49,6 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         return mRestaurants.size();
     }
 
-
     public class RestaurantViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
         @Bind(R.id.restaurantNameTextView) TextView mNameTextView;
@@ -64,6 +64,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         }
 
         public void bindRestaurant(Restaurant restaurant) {
+            Picasso.with(mContext).load(restaurant.getImageUrl()).into(mRestaurantImageView);
             mNameTextView.setText(restaurant.getName());
             mCategoryTextView.setText(restaurant.getCategories().get(0));
             mRatingTextView.setText("Rating: " + restaurant.getRating() + "/5");
